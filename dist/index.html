@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>imgsh</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M4 16a6 6 0 0 1 6-6h12l6 7h26a6 6 0 0 1 6 6v25a6 6 0 0 1-6 6H10a6 6 0 0 1-6-6V16z' fill='%2364A9FF'/%3E%3Cpath d='M4 24h56v24a6 6 0 0 1-6 6H10a6 6 0 0 1-6-6V24z' fill='%23E3F0FF'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header id="topbar">
+    <div class="brand">
+      <span class="logo">imgsh</span>
+      <span class="sub">scp clipboard → remote <code>/tmp/imgsh/</code></span>
+    </div>
+    <button id="rescan" class="btn">Rescan SSH</button>
+  </header>
+
+  <!-- HOME: folder icons only -->
+  <main id="view-home">
+    <section id="hosts" class="grid">
+      <div class="startup-loading" role="status">
+        <div class="spinner" aria-hidden="true"></div>
+        <div class="loading-title">Connecting…</div>
+        <div class="loading-sub">Checking your SSH hosts</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MACHINE: opened folder state (replaces home) -->
+  <main id="view-machine" class="hidden">
+    <div class="crumbs">
+      <button id="back" class="btn small">← All machines</button>
+      <div class="crumb-titles">
+        <div id="detail-title" class="detail-title">host</div>
+      </div>
+      <div class="detail-actions">
+        <button id="refresh" class="btn small">Refresh</button>
+      </div>
+    </div>
+    <div id="machine-loading" class="machine-loading hidden">
+      <div class="spinner"></div>
+      <div class="loading-title">Connecting to <span id="loading-host">host</span>…</div>
+      <div class="loading-sub">Opening SSH session · listing <code>/tmp/imgsh/</code></div>
+    </div>
+    <div id="dropzone" class="dropzone" tabindex="0">
+      <div class="dz-inner">
+        <div class="dz-big">Drop files here or press ⌘V to paste</div>
+        <div class="dz-small">uploads to <code id="dz-target">/tmp/imgsh/</code></div>
+      </div>
+      <div id="just-uploaded" class="just-uploaded hidden">
+        <div class="ju-head">
+          <span>Just pasted — click a path to copy</span>
+          <button id="ju-clear" class="btn small">Clear</button>
+        </div>
+        <ul id="just-uploaded-list"></ul>
+      </div>
+      <ul id="files" class="files"></ul>
+    </div>
+  </main>
+
+  <div id="preview-modal" class="modal hidden">
+    <div class="modal-box">
+      <div class="modal-head">
+        <span id="preview-name" class="detail-title">preview</span>
+        <button id="preview-close" class="btn small">Close</button>
+      </div>
+      <img id="preview-img" alt="preview" />
+      <div class="modal-path">
+        <code id="preview-path"></code>
+        <button id="preview-copy" class="btn small">⧉ Copy path</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toasts"></div>
+  <script src="app.js"></script>
+</body>
+</html>

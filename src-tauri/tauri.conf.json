@@ -1,0 +1,35 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "imgsh",
+  "version": "0.1.0",
+  "identifier": "com.imgsh.app",
+  "build": {
+    "frontendDist": "../dist",
+    "devUrl": null,
+    "beforeDevCommand": null,
+    "beforeBuildCommand": null
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "title": "imgsh",
+        "width": 720,
+        "height": 480,
+        "minWidth": 720,
+        "minHeight": 480,
+        "backgroundColor": "#F5F5F7"
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "category": "Utility",
+    "shortDescription": "Browse SSH remotes and scp-drop images to /imgsh/",
+    "longDescription": "Scan SSH hosts, show them as folders, paste or drag-drop clipboard images/files which are scp'd to /imgsh/ on the remote."
+  }
+}
