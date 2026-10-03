@@ -9,7 +9,17 @@ images/files to `scp` them to `/tmp/imgsh/` on the remote (created if needed).
   `~/.ssh/config`, keys and agent keep working)
 - Plain HTML/CSS/JS frontend in `dist/` (no bundler)
 
-## Run
+## Install with Homebrew
+
+macOS Apple Silicon:
+
+```bash
+brew install --cask ductm104/mytab/imgsh
+```
+
+Release downloads: https://github.com/ductm104/imgsh/releases
+
+## Build from source
 
 ```bash
 bun install
