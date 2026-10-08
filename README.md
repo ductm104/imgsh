@@ -19,6 +19,10 @@ It uses your system `ssh`/`scp`, so your `~/.ssh/config`, keys, agent and
 ProxyJump setups just work. No daemon, no server component, nothing to install
 on the remote.
 
+> **Note:** this repository is 100% vibe-coded — every line of code, docs and CI
+> config was written by AI coding agents, with no human-written code. Review it
+> accordingly before trusting it with your SSH setup.
+
 ## Features
 
 - Hosts are discovered automatically from `~/.ssh/config` and shown as folders,
