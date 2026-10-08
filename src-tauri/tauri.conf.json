@@ -29,7 +29,7 @@
     "active": true,
     "targets": "all",
     "category": "Utility",
-    "shortDescription": "Browse SSH remotes and scp-drop images to /imgsh/",
-    "longDescription": "Scan SSH hosts, show them as folders, paste or drag-drop clipboard images/files which are scp'd to /imgsh/ on the remote."
+    "shortDescription": "Browse SSH remotes and scp-drop images to /tmp/imgsh/",
+    "longDescription": "Scan SSH hosts, show them as folders, paste or drag-drop clipboard images/files which are scp'd to /tmp/imgsh/ on the remote."
   }
 }
