@@ -450,8 +450,8 @@ function mimeFor(name) {
   return "image/" + ext;
 }
 
-// Session history of pasted/uploaded files per host.
-// Shown as "Just pasted" list so the user can click-copy paths manually.
+// Latest pasted/uploaded file per host.
+// Shown as "Just pasted" so the user can click-copy its path manually.
 // No auto-copy to clipboard.
 const justUploadedByHost = new Map(); // alias -> [{ name, path, size }]
 
@@ -498,9 +498,9 @@ function trackDone(alias, label, ok, msg, result) {
   uploading = Math.max(0, uploading - 1);
   if (ok) {
     const full = result.path;
-    const list = justUploadedByHost.get(alias) || [];
-    list.push({ name: result.name, path: result.path, size: result.size });
-    justUploadedByHost.set(alias, list);
+    justUploadedByHost.set(alias, [
+      { name: result.name, path: result.path, size: result.size },
+    ]);
     if (opened === alias) renderJustUploaded();
     toast(`Uploaded ${result.name} (${fmtSize(result.size)}) → ${full}`, "ok");
     cacheInvalidate(alias);
